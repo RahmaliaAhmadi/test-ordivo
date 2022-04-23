@@ -1,31 +1,20 @@
 import Vue from 'vue';
-import VueMq from 'vue-mq'
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faFontAwesome, faTwitter, } from '@fortawesome/free-brands-svg-icons'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import VueRouter from 'vue-router';
 import App from './App.vue';
-import moment from 'moment'
 
-Vue.prototype.moment = moment
-library.add(fas, faFontAwesome, faTwitter);
+import './assets/styles/index.css';
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.config.productionTip = true;
 
-Vue.use(VueMq, {
-  breakpoints: { // default breakpoints - customize this
-    small: 600,
-    medium: 1000,
-    large: Infinity,
-  }
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes: [
+    // { path: '/page', component: App },
+  ],
 });
-
-Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
-
+  router
+}).$mount('#app');
